@@ -4,18 +4,22 @@ include 'connexion.php';
 
 if (isset($_GET['disc_id'])) {
     $id = $_GET['disc_id'];
+    try{
     $stmt = $conn->prepare("SELECT * FROM disc JOIN artist ON disc.artist_id = artist.artist_id WHERE disc_id = :id ");
     $stmt->bindParam(':id', $id, PDO::PARAM_INT);
     $stmt->execute();
     $result = $stmt->fetch();
     $stmt->closeCursor();
+}catch (PDOException $e) {
+    echo "Erreur : " . $e->getMessage();
+}
 }
 try {
     $stmt2 = $conn->prepare("SELECT * FROM artist");
     $stmt2->execute();
     $result2 = $stmt2->fetchAll(PDO::FETCH_OBJ);
 } catch (PDOException $e) {
-    echo "Erreur lors de la récupération des artistes: " . $e->getMessage();
+    echo "Erreur : " . $e->getMessage();
 }
 $stmt->closeCursor();
 ?>
@@ -81,16 +85,17 @@ $stmt->closeCursor();
                 </div>
 
                 <div class='form-row'>
-                    <label for="pricture">Picture</label>
-    
+                    <label for="picture">Picture</label>
+    <input type="hidden" id="original_picture" name="original_picture" value="<?= $result['disc_picture']?>">
                     <input type="file" class='form-control' name="picture" id='picture'
-                        accept="image/png, image/jpeg, image/webp" value="asset/img/<?= $result['disc_picture'] ?>">
+                        accept="image/png, image/jpeg, image/webp">
                         <img class="mt-2" src="asset/img/<?= $result['disc_picture'] ?>">
                     
                     <span id='pictureError'></span>
                 </div>
                 <div class="mt-5">
-                    <button type="submit" class="btn btn-primary" id="submit">Modifier</button>
+                    <input type="submit" class="btn btn-primary" id="submit" value="Modifier">
+                    <a href="delete_form.php?disc_id=<?= $id ?>"  class="btn btn-primary" id="del">Supprimer</a>
                     <button class="btn btn-primary" id="retour" onclick="history.go(-1)">Retour</button>
                 </div>
                 

@@ -20,6 +20,7 @@ $form['form'] = array(
         "label" => "NA",
         "price" => "NA",
         "picture" => "NA",
+        "original_picture" => "NA",
         
     
     )
@@ -27,13 +28,14 @@ $form['form'] = array(
 
 
 array_push($form['form'], array(
-    "titre" => $_REQUEST['titre'],
-    "artist" => $_REQUEST['artist'],
-    "year" => $_REQUEST['year'],
-    "genre" => $_REQUEST['genre'],
-    "label" => $_REQUEST['label'],
-    "price" => $_REQUEST['price'],
-    "picture" => $_REQUEST['picture'],
+    "titre" => $_POST['titre'],
+    "artist" => $_POST['artist'],
+    "year" => $_POST['year'],
+    "genre" => $_POST['genre'],
+    "label" => $_POST['label'],
+    "price" => $_POST['price'],
+    "picture" => $_FILES['picture'],
+    "original_picture" => $_POST['original_picture'],
     
 
 )
@@ -47,6 +49,7 @@ $genre = $form['form'][1]['genre'];
 $label = $form['form'][1]['label'];
 $price = $form['form'][1]['price'];
 $picture = $form['form'][1]['picture'];
+$original = $form['form'][1]['original_picture'];
 
 
 
