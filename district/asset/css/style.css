@@ -1,0 +1,42 @@
+
+.parallax {
+  /* The image used */
+  background-image: url(../image/images_the_district/fond.jpg);
+  min-height: 1000px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.zoom {
+    transition: transform 1s;
+}
+
+.zoom:hover {
+  -ms-transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  transform:scale(1.1);
+ 
+}
+#background-video{
+height: 10rem;
+width: 100%;
+object-fit: cover;
+position: absolute;
+left: 0;
+right: 0;
+top: 0;
+bottom: 0;
+}
+b{
+  color: rgb(34, 12, 233);
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+  background-color: rgb(240, 248, 255,0.7) ;
+}
+#mention{
+ 
+  background-color: rgb(240, 248, 255,0.7) ;
+  font-size: large;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}

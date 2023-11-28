@@ -1,0 +1,15 @@
+{
+    "name": "buttoudin/district",
+    "autoload": {
+        "psr-4": {
+            "Buttoudin\\District\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Clement Buttoudin",
+            "email": "clementbut001@gmail.com"
+        }
+    ],
+    "require": {}
+}
