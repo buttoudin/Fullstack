@@ -12,34 +12,38 @@ $result = categorie_categorie($conn);
     <?php require 'header.php'; ?>
     <!-- recherche -->
     <div class="card-deck justify-content-center d-flex">
-        <?php foreach ($result as $row) { ?>
-
+        <?php foreach ($result as $row) {
+            $id = $row->id; ?>
 
             <div class="col-4 d-flex justify-content-center mt-5">
                 <div class="zoom">
-                    <div class="card" style="background-color: rgb(156, 156, 156);">
+                    <a href="plat_categorie.php?id=<?= $id ?>">
+                        <div class="card" style="background-color: rgb(156, 156, 156);">
 
-                        <div class="card-header">
-                            Catégorie
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">
-                                <?= $row->libelle; ?>
-                            </h5>
+                            <div class="card-header">
+                                Catégorie
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <?= $row->libelle; ?>
+                                </h5>
 
-                            <br>
-                            <img class="card-img-bottom" src="asset/image/images_the_district/category/<?= $row->image; ?>"
-                                alt="Card images Pinterest">
+                                <br>
+                                <img class="card-img-bottom"
+                                    src="asset/image/images_the_district/category/<?= $row->image; ?>"
+                                    alt="Card images Pinterest">
+                            </div>
                         </div>
-                    </div>
+                        </a>
                 </div>
             </div>
+
         <?php } ?>
     </div>
 
 
     <br><br><br><br>
-<?php require 'footer.php'; ?>
+    <?php require 'footer.php'; ?>
 </div>
 </body>
 

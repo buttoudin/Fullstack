@@ -1,9 +1,9 @@
 <?php
 
 $servername = "localhost";
-$username = "admin";
-$password = "afpa1234";
-$dbname = "district";
+$username = "buttoudin";
+$password = "Afpa1234";
+$dbname = "buttoudin";
 
 try {
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
@@ -42,6 +42,18 @@ function plat_plat($conn)
     $stmt = $conn->query("SELECT * FROM plat limit 6");
     $result = $stmt->fetchAll(PDO::FETCH_OBJ);
     return $result;
+}
+function plat_categorie($conn)
+{
+    if (isset($_GET['id'])) {
+        $id = $_GET['id'];
+        $stmt = $conn->prepare("SELECT plat.* FROM plat JOIN categorie ON plat.id_categorie = categorie.id WHERE categorie.id = :id");
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $stmt->closeCursor();
+        return $result;
+    }
 }
 function commande_commande($conn)
 {

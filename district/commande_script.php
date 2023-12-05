@@ -63,8 +63,9 @@ if ($mail){
         $mail->send();
         header('Location: index.php');
         } catch (Exception $e) {
-        echo "L'envoi de mail a échoué. L'erreur suivante s'est produite : ", $mail->ErrorInfo;
-        }
+        echo "L'envoi de mail a échoué. L'erreur suivante s'est produite : ", $mail->ErrorInfo . "<br>Vous allez être rediriger vers la page d'acceuil.";
+        header("refresh:5;url=index.php");
+    }
     }
 
 ?>

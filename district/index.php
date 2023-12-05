@@ -6,6 +6,7 @@ $result = categorie_index($conn);
 $result2 = plat_index($conn);
 
 
+
 ?>
 
 
@@ -31,27 +32,28 @@ $result2 = plat_index($conn);
         </div>
     </div>
     <div class="card-deck justify-content-center d-none d-md-flex">
-        <?php foreach ($result as $row) { ?>
-
+        <?php foreach ($result as $row) { 
+            $id = $row->id; ?>
 
             <div class="col-4 d-flex justify-content-center mt-5">
                 <div class="zoom">
-                    <a href="categorie.php">
-                    <div class="card" style="background-color: rgb(156, 156, 156);">
+                    <a href="plat_categorie.php?id=<?= $id ?>">
+                        <div class="card" style="background-color: rgb(156, 156, 156);">
 
-                        <div class="card-header">
-                            Catégorie
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">
-                                <?= $row->libelle; ?>
-                            </h5>
+                            <div class="card-header">
+                                Catégorie
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <?= $row->libelle; ?>
+                                </h5>
 
-                            <br>
-                            <img class="card-img-bottom" src="asset/image/images_the_district/category/<?= $row->image; ?>"
-                                alt="Card images Pinterest">
+                                <br>
+                                <img class="card-img-bottom"
+                                    src="asset/image/images_the_district/category/<?= $row->image; ?>"
+                                    alt="Card images Pinterest">
+                            </div>
                         </div>
-                    </div>
                     </a>
                 </div>
             </div>
@@ -69,22 +71,22 @@ $result2 = plat_index($conn);
                 <div class="col-md-4 col-12 d-flex justify-content-center mt-5">
                     <div class="zoom">
                         <a href="plat.php">
-                        <div class="card" style="background-color: rgb(156, 156, 156);">
+                            <div class="card" style="background-color: rgb(156, 156, 156);">
 
-                            <div class="card-header">
-                                Plat
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title">
-                                    <?= $row->libelle; ?>
-                                </h5>
+                                <div class="card-header">
+                                    Plat
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        <?= $row->libelle; ?>
+                                    </h5>
 
-                                <br>
-                                <img class="card-img-bottom"
-                                    src="asset/image/images_the_district/food_sized/<?= $row->image; ?>"
-                                    alt="Card images Pinterest">
+                                    <br>
+                                    <img class="card-img-bottom"
+                                        src="asset/image/images_the_district/food_sized/<?= $row->image; ?>"
+                                        alt="Card images Pinterest">
+                                </div>
                             </div>
-                        </div>
                         </a>
                     <?php } else { ?>
                         <div class="col-md-4 col-12 d-flex d-md-none justify-content-center mt-5">
@@ -113,9 +115,9 @@ $result2 = plat_index($conn);
             <!-- Réseaux -->
 
             <br><br><br><br>
-    
+
         </div>
-       
+
     </div>
     <?php require 'footer.php'; ?>
 </div>
