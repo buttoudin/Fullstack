@@ -11,8 +11,9 @@ $result = plat_categorie($conn);
 <div class="container-fluid parallax overflow-hidden">
     <?php require 'header.php'; ?>
 
-    <div class="card-deck justify-content-center d-none d-md-flex">
+    <div class="card-deck justify-content-center d-md-flex">
         <?php foreach ($result as $row) { 
+            $verif = True;
              $id = $row['id'];?>
             
             <div class="col-12 col-md-6 d-flex justify-content-center mt-5">
@@ -43,7 +44,16 @@ $result = plat_categorie($conn);
                     </div>
                 </div>
             </div>
-        <?php } ?>
+        <?php } 
+        if (!$verif){ ?>
+            <div id="mention" class="container mt-5 d-flex text-align-center">
+            <p>
+                Pas de plat dans cette catégorie pour le moment.
+            </p>
+        </div>
+        <?php }
+        ?>
+
     </div>
     <br><br><br><br>
 

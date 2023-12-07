@@ -1,9 +1,9 @@
 <?php
 
 $servername = "localhost";
-$username = "buttoudin";
-$password = "Afpa1234";
-$dbname = "buttoudin";
+$username = "admin";
+$password = "afpa1234";
+$dbname = "district";
 
 try {
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
