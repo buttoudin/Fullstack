@@ -49,6 +49,7 @@ $id = $result['id'];
                 <label for="NomPrenom">Nom et prénom</label>
                 <input type="text" class="form-check w-100 " name="NomPrenom" id="NomPrenom"
                     placeholder="Saisir votre nom et prénom">
+                    <span id="NomPrenomError"></span>
             </div>
             <div class="form-row">
 
@@ -58,6 +59,7 @@ $id = $result['id'];
                         <label for="email">Email</label>
                         <input type="email" class="form-control" name="courriel" id="courriel"
                             placeholder="Saisir votre Email">
+                            <span id="mailError"></span>
                     </div>
 
                 </div>
@@ -67,6 +69,7 @@ $id = $result['id'];
                         <label for="numero">Numero</label>
                         <input type="text" class="form-control" name="numero" id="numero"
                             placeholder="Saisir votre numéro de téléphone">
+                            <span id="numeroError"></span>
                     </div>
 
 
@@ -77,6 +80,7 @@ $id = $result['id'];
                 <label for="adresse">Votre adresse</label>
                 <input type="text" class="form-check w-100 " name="adresse" id="adresse"
                     placeholder="Saisir votre adresse">
+                    <span id="adresseError"></span>
             </div>
             <div class="col-11 text-right mt-5">
                 <button type="submit" class="btn btn-primary" id="submit">Envoyer</button>
